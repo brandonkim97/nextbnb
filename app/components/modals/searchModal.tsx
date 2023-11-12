@@ -96,6 +96,11 @@ const SearchModal = () => {
         params
     ]);
 
+    const handleClose = () => {
+        setStep(STEPS.LOCATION);
+        searchModal.onClose();
+    }
+
     const actionLabel = useMemo(() => {
         if (step === STEPS.INFO) {
             return 'Search';
@@ -174,7 +179,7 @@ const SearchModal = () => {
     return ( 
         <Modal 
             isOpen={searchModal.isOpen}
-            onClose={searchModal.onClose}
+            onClose={handleClose}
             onSubmit={onSubmit}
             title="Filters"
             actionLabel={actionLabel}

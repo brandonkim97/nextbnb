@@ -103,6 +103,11 @@ const RentModal = () => {
         })
     }
 
+    const handleClose = () => {
+        setStep(STEPS.CATEGORY);
+        rentModal.onClose();
+    }
+
     const actionLabel = useMemo(() => {
         if (step === STEPS.PRICE) {
             return 'Create';
@@ -265,7 +270,7 @@ const RentModal = () => {
     return ( 
         <Modal 
             isOpen={rentModal.isOpen}
-            onClose={rentModal.onClose}
+            onClose={handleClose}
             onSubmit={handleSubmit(onSubmit)}
             actionLabel={actionLabel}
             secondaryActionLabel={secondaryActionLabel}
