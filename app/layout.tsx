@@ -13,6 +13,7 @@ import LoginModal from './components/modals/LoginModal'
 import getCurrentUser from './actions/getCurrentUser'
 import RentModal from './components/modals/RentModal'
 import SearchModal from './components/modals/searchModal'
+import Footer from './components/footer/Footer'
 
 export const dynamic = 'force-dynamic'
 
@@ -34,7 +35,7 @@ export default async function RootLayout({
 
   return (
     <html lang="en">
-      <body className={font.className}>
+      <body className={`${font.className} flex flex-col h-screen`}>
         <ClientOnly>
           <ToasterProvider />
           <SearchModal />
@@ -43,9 +44,10 @@ export default async function RootLayout({
           <RegisterModal />
           <Navbar currentUser={currentUser} />
         </ClientOnly>
-        <div className="pb-20 pt-36">
+        <div className="pb-20 pt-36 flex-1">
           {children}
         </div>
+        <Footer />
       </body>
     </html>
   )
