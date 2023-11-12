@@ -1,11 +1,19 @@
-const headers = require('/headers');
+const headers = require('./headers');
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     images: {
-        domains: [
-            "avatars.githubusercontent.com",
-            "res.cloudinary.com",
+        remotePatterns: [
+            {
+                protocol: 'https',
+                hostname: 'avatars.githubusercontent.com',
+                pathname: '**',
+            },
+            {
+                protocol: 'https',
+                hostname: 'res.cloudinary.com',
+                pathname: '**',
+            }
         ]
     },
     async headers() {
